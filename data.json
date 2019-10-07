@@ -1,0 +1,47 @@
+{
+  "imad": {
+    "balance": [],
+    "pin": [
+      "1432"
+    ],
+    "acct_num": [
+      554544
+    ]
+  },
+  "leila": {
+    "balance": [],
+    "pin": [
+      "234"
+    ],
+    "acct_num": [
+      410119
+    ]
+  },
+  "grey": {
+    "balance": [],
+    "pin": [
+      "1234"
+    ],
+    "acct_num": [
+      53607
+    ]
+  },
+  "Krish": {
+    "balance": [],
+    "pin": [
+      "1922"
+    ],
+    "acct_num": [
+      492549
+    ]
+  },
+  "/Library/Frameworks/Python.framework/Versions/3.7/bin/python3 /Users/Imad/Documents/Dev/byte/week2/terminal_teller/controller.py": {
+    "balance": [],
+    "pin": [
+      "exit"
+    ],
+    "acct_num": [
+      48677
+    ]
+  }
+}
