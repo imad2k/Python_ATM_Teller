@@ -1,4 +1,5 @@
 import random
+import controller
 
 def run_menu():
     print()
@@ -29,13 +30,22 @@ def bad_input():
 def goodbye():
     print()
     print("Goodbye, have a great day!")
+    exit()
     
-
-
+    
 def get_deposit_input():
     print()
-    print("How much would you like to deposit today? ")
-    return input(int())
+    deposit_amount = int(input("How much would you like to deposit today? "))
+    return deposit_amount
+
+# def get_deposit_input():
+#     print()
+#     deposit_amount = int(input("Please enter your pin: "))
+#     # print("How much would you like to deposit today? ")
+#     deposit_amount = int(input(("How much would you like to deposit today? "))
+#     # print(deposit_amount)
+#     return deposit_amount
+
 
 def get_withdraw_input():
     print()
@@ -49,7 +59,7 @@ def get_name():
 
 def get_pin():
     print()
-    pin = input("Please enter your pin: ")
+    pin = int(input("Please enter your pin: "))
     return pin
 
 def show_balance(balance):
@@ -60,19 +70,18 @@ def show_balance(balance):
 def success():
     print()
     print("You authenticated your identity!")
+    
+def wrong_pin():
+    print()
+    print("You've entered the wrong pin, please try again")
+    controller.customer_menu()
 
 
 def create_account_num():
-    # print()
-    # print("Happy to hear you want to create an account with us. Please fill out the following form")
-    # customer_name = input("Please enter your name: ")
-    # customer_pin = input("Please enter a pin: ")
     acct_num = random.randint(500, 1000000)
     return acct_num
 
 def change_pin():
     print()
-    # customer_name = input("Please Enter Your Name")
-    # pin = input("Please Enter Your Current Pin")
     new_pin = input("What would you like to change your pin to? ")
     return new_pin
