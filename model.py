@@ -45,14 +45,16 @@ def deposit(customer_name, amount):
 
 def withdraw(customer_name, amount):
     data = load_data()
-    new_balance = data[customer_name]["balance"].pop() - int(amount)
+    balance = data[customer_name]["balance"].pop()
+    new_balance = balance - int(amount)
+    # new_balance = data[customer_name]["balance"].pop() - int(amount)
     # data["acct_num"]["balance"].pop()
     data[customer_name]["balance"].append(int(new_balance))
     save(data)
     
 def get_balance(customer_name):
     data = load_data()[customer_name]
-    acct_balance = data["balance"]
+    acct_balance = data["balance"][:-1]
     
     return acct_balance
     
