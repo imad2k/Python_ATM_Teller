@@ -1,28 +1,11 @@
 {
-  "kk": {
-    "balance": 0,
-    "pin": 22,
-    "acct_num": 566780
-  },
-  "ii": {
+  "sam": {
     "balance": [
-      800
+      1900
     ],
-    "pin": 12,
-    "acct_num": 972172
-  },
-  "Lady_mibblez": {
-    "balance": [
-      10000000
+    "pin": [
+      2020
     ],
-    "pin": 101715,
-    "acct_num": 445864
-  },
-  "ladi": {
-    "balance": [
-      6800
-    ],
-    "pin": 777,
-    "acct_num": 680532
+    "acct_num": 551000
   }
 }

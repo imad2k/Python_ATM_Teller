@@ -33,18 +33,10 @@ def goodbye():
     exit()
     
     
-def get_deposit_input():
+def get_deposit_input(): 
     print()
     deposit_amount = int(input("How much would you like to deposit today? "))
     return deposit_amount
-
-# def get_deposit_input():
-#     print()
-#     deposit_amount = int(input("Please enter your pin: "))
-#     # print("How much would you like to deposit today? ")
-#     deposit_amount = int(input(("How much would you like to deposit today? "))
-#     # print(deposit_amount)
-#     return deposit_amount
 
 
 def get_withdraw_input():

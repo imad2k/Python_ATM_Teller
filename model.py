@@ -19,13 +19,13 @@ def create_acct(customer_name, customer_pin, customer_acct_num):
     data = load_data()
     # print(customer_name, customer_pin)
     # zero_balance = [0]
-    data[customer_name] = {"balance":[0], "pin":customer_pin, "acct_num":customer_acct_num}
+    data[customer_name] = {"balance":[0], "pin":[customer_pin], "acct_num":customer_acct_num}
     
     save(data)
         
 def authentication(customer_name, pin):
     data = load_data()
-    customer_pin = data[customer_name]["pin"]
+    customer_pin = data[customer_name]["pin"].pop()
     print(customer_pin == pin)
     if pin == customer_pin:
         return True
@@ -53,17 +53,18 @@ def withdraw(customer_name, amount):
     save(data)
     
 def get_balance(customer_name):
-    data = load_data()[customer_name]
-    acct_balance = data["balance"][:-1]
+    data = load_data()
+    acct_balance = data[customer_name]["balance"].pop()
+    # acct_balance = data["balance"][:-1]
     
     return acct_balance
     
 def update_pin(customer_name, new_pin):
     data = load_data()
-    # customer_name = customer_name
-    updated_pin = new_pin
     data[customer_name]["pin"].clear()
-    data[customer_name]["pin"].append(int(updated_pin))
+    data[customer_name]["pin"].append(int(new_pin))
+    save(data)
+    
     
 # def transfer(customer_name, customer_name):
     
