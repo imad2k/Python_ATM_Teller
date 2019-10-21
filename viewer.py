@@ -68,10 +68,15 @@ def wrong_pin():
     print("You've entered the wrong pin, please try again")
     controller.customer_menu()
 
+# def auth_menu():
+#     print()
+#     name = input("Please enter your name: ")
+#     pin = input("Please enter your pin: ")
+    
 
-def create_account_num():
-    acct_num = random.randint(500, 1000000)
-    return acct_num
+# def create_account_num():
+#     acct_num = random.randint(500, 1000000)
+#     return acct_num
 
 def change_pin():
     print()

@@ -1,4 +1,4 @@
-import model
+from model import Account, authentication
 import viewer
 
 def run():
@@ -8,9 +8,9 @@ def run():
         if choice == "1":
             name = viewer.get_name()
             pin = viewer.get_pin()
-            new_acct_num = viewer.create_account_num()
-            
-            model.create_acct(name, pin, new_acct_num)
+
+            new_acct = Account(name, pin)
+            Account.create_acct(new_acct)
         #Exiting customer Menu
         elif choice == "2":
             customer_menu()
@@ -24,56 +24,35 @@ def run():
 
 def customer_menu():
     while True:
+        
+        name = viewer.get_name()
+        pin = viewer.get_pin()
+        authentication(name, pin)
         choice = viewer.existing_customer_menu()
+        
         #Deposit
         if choice == "1":
-            #Authentication
-            name = viewer.get_name()
-            pin = viewer.get_pin()
-            auth_validation = model.authentication(name, pin)
-            if auth_validation == True:
-                deposit = viewer.get_deposit_input()
-                model.deposit(name, deposit)
-            else:
-                viewer.wrong_pin()
+            
+            amount = viewer.get_deposit_input()
+            Account.deposit(name, amount)
                 
         #Get Balance    
         elif choice == "2":
-            #Authentication
-            name = viewer.get_name()
-            pin = viewer.get_pin()
-            print(name, pin)
-            auth_validation = model.authentication(name, pin)
-            print(auth_validation)
-            if auth_validation == True:
-                balance = model.get_balance(name)
-                viewer.show_balance(balance)
-            else:
-                viewer.wrong_pin()
+            
+            balance = Account.get_balance(name)
+            viewer.show_balance(balance)
+            
+
         #Withdraw   
         elif choice == "3":
-            #Authentication
-            name = viewer.get_name()
-            pin = viewer.get_pin()
-            auth_validation = model.authentication(name, pin)
-            if auth_validation == True:
-                #Withdraw    
-                withdraw_amount = viewer.get_withdraw_input()
-                model.withdraw(name, withdraw_amount)
-            else:
-                viewer.wrong_pin()
+            withdraw_amount = viewer.get_withdraw_input()
+            Account.withdraw(name, withdraw_amount)
+            
          #Update Pin   
         elif choice == "4":
-            #Authentication
-            name = viewer.get_name()
-            pin = viewer.get_pin()
-            auth_validation = model.authentication(name, pin)
-            if auth_validation == True:
-                #Update Pin
-                new_pin = viewer.change_pin()
-                model.update_pin(name, new_pin)
-            else:
-                viewer.wrong_pin()
+            
+            new_pin = viewer.change_pin()
+            Account.update_pin(name, new_pin)
             
         elif choice == "5":
             viewer.goodbye()
