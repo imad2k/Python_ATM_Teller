@@ -23,20 +23,21 @@ class Account:
     def __init__(self, customer_name, customer_pin):
         self.customer_name = customer_name
         self.customer_pin = customer_pin
-        self.customer_acct_num = random.randint(500, 1000000)
+        
     
     
     #took out customer_name, customer_pin, customer_acct_num    
     def create_acct(self):
         data = load_data()
+        self.customer_acct_num = random.randint(500, 1000000)
         data[self.customer_name] = {"balance":[0], "pin":[self.customer_pin], "acct_num":self.customer_acct_num}
         save(data)    
   
     #took out customer_name
-    def deposit(self, name, amount):
+    def deposit(self, amount):
         data = load_data()
-        balance = data[name]["balance"]
-        new_balance = balance.pop() + int(amount)
+        balance = data[self.customer_name]["balance"].pop()
+        new_balance = balance + int(amount)
         data[self.customer_name]["balance"].append(int(new_balance))
         save(data)
  
@@ -53,9 +54,9 @@ class Account:
     #took out customer_name
     def get_balance(self):
         data = load_data()
-        acct_balance = data[self.customer_name]["balance"].pop()
+        balance = data[self.customer_name]["balance"].pop()
         # acct_balance = data["balance"][:-1]
-        return acct_balance
+        return balance
 
     
     #took out customer_name
@@ -65,6 +66,11 @@ class Account:
         data[self.customer_name]["pin"].append(int(new_pin))
         save(data)
 
+    
+    def load_data(self):
+        data = load_data()
+        return self.__init__
+        
 
     # def transfer(customer_name, customer_name):
     
@@ -72,19 +78,18 @@ class Account:
 #took out customer_name
 def authentication(name, pin):
     data = load_data()
-    customer_name = data[name]
+    # customer_name = data[name]
     customer_pin = data[name]["pin"].pop()
+    # print("PIN", type(customer_pin), customer_pin)
+    # print("NAME", type(customer_name), customer_name)
         # print(self.customer_pin == pin)
-    if name == customer_name and pin == customer_pin:
+    if pin == customer_pin:
         return True
     # else:
     #     viewer.wrong_pin()
     
 
     
-    # def create_account_num():
-    # acct_num = random.randint(500, 1000000)
-    # return acct_num
 
     
 

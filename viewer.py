@@ -1,5 +1,5 @@
 import random
-import controller
+from controller import customer_menu
 
 def run_menu():
     print()
@@ -66,7 +66,7 @@ def success():
 def wrong_pin():
     print()
     print("You've entered the wrong pin, please try again")
-    controller.customer_menu()
+    customer_menu()
 
 # def auth_menu():
 #     print()
